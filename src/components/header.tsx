@@ -1,7 +1,8 @@
-import { homePath, ticketsPath } from "@/path";
+import { homePath, ticketsPath } from "@/paths";
 import { buttonVariants } from "./ui/button";
 import Link from "next/link";
 import { LucideKanban } from "lucide-react";
+import { ThemeSwitcher } from "./theme/theme-switcher";
 
 const Header = () => {
   return (
@@ -12,7 +13,7 @@ const Header = () => {
         top-0 z-20 w-full bg-background/80 backdrop-blur
         flex justify-between py-2.5 px-5 border-b"
     >
-      <div>
+      <div className="flex align-items gap-x-2">
         <Link
           href={homePath()}
           className={buttonVariants({ variant: "ghost" })}
@@ -21,8 +22,9 @@ const Header = () => {
           <h1 className=" ml-2 text-lg font-semibold">TicketBounty</h1>
         </Link>
       </div>
-      <div>
+      <div className="flex align-items gap-x-2">
         {/* <Button asChild variant="outline"> */}
+        <ThemeSwitcher />
         <Link
           href={ticketsPath()}
           className={buttonVariants({ variant: "outline" })}
